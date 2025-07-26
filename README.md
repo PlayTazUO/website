@@ -1,49 +1,19 @@
-# Starlight Starter Kit: Basics
+<p align="center"><a href="https://discord.gg/QvqzkB95G4"><img src="https://discord.com/api/guilds/1344851225538986064/widget.png?style=banner3" alt="Discord Banner 3"/></a></p>
 
-[![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
+***
 
-```
-npm create astro@latest -- --template starlight
-```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+| Channel | Status |
+| --- | --- |
+| Release | [![Release](https://github.com/bittiez/TazUO/actions/workflows/build-test.yml/badge.svg?branch=main)](https://github.com/bittiez/TazUO/actions/workflows/build-test.yml) |
+| Dev | [![Dev](https://github.com/bittiez/TazUO/actions/workflows/build-test.yml/badge.svg?branch=dev)](https://github.com/bittiez/TazUO/actions/workflows/build-test.yml) |
 
-## 🚀 Project Structure
 
-Inside of your Astro + Starlight project, you'll see the following folders and files:
+# What is TazUO?
+**TazUO** was originally a fork from ClassicUO with the mindset of adding features requested by users to improve QOL. **TazUO** has since moved away from ClassicUO, we will keep an eye on ClassicUO updates and incorporate changes or fixes as they have a wider user base that provides bug reports, but **TazUO** will no longer be merging all changes from ClassicUO.
 
-```
-.
-├── public/
-├── src/
-│   ├── assets/
-│   ├── content/
-│   │   └── docs/
-│   └── content.config.ts
-├── astro.config.mjs
-├── package.json
-└── tsconfig.json
-```
+# Play now
+The easiest way to play with TazUO is via our [launcher](https://github.com/bittiez/TUO-Launcher/releases/latest)!
 
-Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
-
-Images can be added to `src/assets/` and embedded in Markdown with a relative link.
-
-Static assets, like favicons, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
+# TazUO features
+Check out our [wiki](../../wiki) for details on all the changes TazUO has made for players!  
