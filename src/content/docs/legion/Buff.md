@@ -4,8 +4,6 @@ title: Buff Documentation
 description: Documentation for the Buff class in the Python API.
 ---
 
-# Buff  
-
 ## Properties
 _No properties found._
 

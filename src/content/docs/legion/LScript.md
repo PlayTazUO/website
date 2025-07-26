@@ -3,11 +3,6 @@ title: Legion Scripting
 description: Documentation for Legion scripting commands and functionality.
 ---
 
-# Legion Scripting
-
-
-
-
 # Commands
 
 ## `togglescript`  

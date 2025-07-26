@@ -3,8 +3,6 @@ title: PyControl Documentation
 description: Documentation for the PyControl class in the Python API.
 ---
 
-# PyControl  
-
 ## Properties
 _No properties found._
 

@@ -3,8 +3,6 @@ title: PyProfile Documentation
 description: Documentation for the PyProfile class in the Python API.
 ---
 
-# PyProfile  
-
 ## Properties
 - **CharacterName** (*string*)
   -  Get the current character name

@@ -2,8 +2,6 @@
 title: Python API Documentation
 description: A guide in my new Starlight docs site.
 ---
-
-# Python API Documentation  
 This is automatically generated documentation for the Python API scripting.  
 All methods, properties, enums, etc need to pre prefaced with `API.` for example: `API.Msg("An example")`.  
   

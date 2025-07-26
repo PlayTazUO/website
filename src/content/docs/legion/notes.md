@@ -3,7 +3,6 @@ title: Additional Notes
 description: Additional notes and information regarding the Python scripting API.
 ---
 
-# Additional notes
 These are additional notes and information regarding the Python scripting API. This is for information not automatically generated in the [API docs](API.md)
 
 ## Misc
