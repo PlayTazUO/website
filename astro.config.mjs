@@ -29,7 +29,7 @@ export default defineConfig({
           ],
         },
         {
-          label: "Legion",
+          label: "Legion API",
           items: [
             { label: "Python API Documentation", slug: "legion/api" },
             { label: "Legion Scripting", slug: "legion/lscript" },
