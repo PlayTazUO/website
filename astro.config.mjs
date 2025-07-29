@@ -7,6 +7,11 @@ export default defineConfig({
   site: 'https://tazuo.org',
   integrations: [
     starlight({
+      logo: {
+        src: "/src/assets/TazUO.webp",
+        alt: "TazUO Logo",
+        replacesTitle: true,
+      },
       title: "TazUO",
       social: [
         {
