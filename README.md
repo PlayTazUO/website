@@ -5,8 +5,8 @@
 
 | Channel | Status |
 | --- | --- |
-| Release | [![Release](https://github.com/bittiez/TazUO/actions/workflows/build-test.yml/badge.svg?branch=main)](https://github.com/bittiez/TazUO/actions/workflows/build-test.yml) |
-| Dev | [![Dev](https://github.com/bittiez/TazUO/actions/workflows/build-test.yml/badge.svg?branch=dev)](https://github.com/bittiez/TazUO/actions/workflows/build-test.yml) |
+| Release | [![Release](https://github.com/PlayTazUO/TazUOactions/workflows/build-test.yml/badge.svg?branch=main)](https://github.com/PlayTazUO/TazUOactions/workflows/build-test.yml) |
+| Dev | [![Dev](https://github.com/PlayTazUO/TazUOactions/workflows/build-test.yml/badge.svg?branch=dev)](https://github.com/PlayTazUO/TazUOactions/workflows/build-test.yml) |
 
 
 # What is TazUO?
