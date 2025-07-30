@@ -5,7 +5,7 @@ import catppuccin from "@catppuccin/starlight";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://tazuo.org',
+  site: "https://tazuo.org",
   integrations: [
     starlight({
       logo: {
@@ -31,13 +31,17 @@ export default defineConfig({
           label: "Introduction",
           items: [
             // Each item here is one entry in the navigation menu.
-            { label: "How to Install", slug: "introduction/how-to-install" },
+            {
+              label: "How to Install",
+              slug: "introduction/how-to-install",
+              badge: { text: "New", variant: "success" },
+            },
           ],
         },
         {
           label: "Legion API",
           items: [
-            { label: "Python API Documentation", slug: "legion/api" },
+            { label: "Documentation", slug: "legion/api" },
             { label: "Legion Scripting", slug: "legion/lscript" },
             { label: "PyProfile", slug: "legion/pyprofile" },
             { label: "PyControl", slug: "legion/pycontrol" },
@@ -50,13 +54,13 @@ export default defineConfig({
           autogenerate: { directory: "reference" },
         },
       ],
-      plugins: [catppuccin({
-        dark: { flavor: "frappe", accent: "mauve" },
-        light: { flavor: "latte", accent: "sky" },
-      })],
-      customCss: [
-        './src/styles/custom.css',
+      plugins: [
+        catppuccin({
+          dark: { flavor: "frappe", accent: "mauve" },
+          light: { flavor: "latte", accent: "sky" },
+        }),
       ],
+      customCss: ["./src/styles/custom.css"],
     }),
   ],
 });
