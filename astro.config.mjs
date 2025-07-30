@@ -54,6 +54,9 @@ export default defineConfig({
         dark: { flavor: "frappe", accent: "mauve" },
         light: { flavor: "latte", accent: "sky" },
       })],
+      customCss: [
+        './src/styles/custom.css',
+      ],
     }),
   ],
 });

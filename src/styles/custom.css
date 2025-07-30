@@ -1,0 +1,16 @@
+.social-icons svg {
+  width: 1.5em;
+  height: 1.5em;
+  fill: currentColor;
+}
+
+.card {
+  background-color: var(--sl-color-neutral-100);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  box-shadow: var(--sl-shadow-small);
+  &:hover {
+    background-color: var(--sl-color-neutral-200);
+    box-shadow: var(--sl-shadow-medium);
+  }
+}
