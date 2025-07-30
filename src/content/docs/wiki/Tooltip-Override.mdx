@@ -1,0 +1,55 @@
+---
+title: Tooltip Overrides
+description: This feature allows you to customize your tooltips exactly how you'd like to see them.
+---
+
+import { Code } from '@astrojs/starlight/components';
+
+
+This feature allows you to customize your tooltips exactly how you'd like to see them.  
+
+![image](https://github.com/user-attachments/assets/b7bc64dc-c85d-477d-a1c0-f755f3d8ee23)
+
+# Tooltip menu
+Accessed via `Options -> TazUO -> Tooltips -> Tooltip override settings`
+
+### A little explanation of the menu:  
+
+The first text box is the search text, properties containing this text will be replace with the second text box  
+:::note[You can optionally use regex by prefacing your search text with $: `$(Bless\b)` for example.  ]
+:::
+
+### The second box can use the following commands:  
+-  `/c[red]` or `/c[#ffffff]` to set the color  
+-  `/cd` to return to normal color.  
+-  `/n` will add a blank line  
+-  `{1}` will insert the first number found in the property  
+-  `{2}` will insert the second number  
+-  `{3}` will insert the original property line  
+
+-  `4 and 5` are special, when using item comparisons (press `ctrl` while hovering over an item in your grid container to compare it to item equipped in that slot) these will be the difference between the values of that property.  
+-  `{4}` the difference between the first numbers  
+-  `{5}` the difference between the second numbers  
+
+The next few boxes are for min and max values (for properties with numbers like Weapon Damage 10 - 15).
+
+The final drop down box is to match specific item layers (If you wanted to set up one Mana increase for armor, and one for jewelry for example)
+
+## Value difference comparisons
+![image](https://github.com/user-attachments/assets/b6adf647-0fbb-427c-b895-9eda5058b10a) 
+In this screenshot you can see there are numerical differences on the item in my inventory compared to the item equipped, this is done using the following formatting in tooltip overrides: `{0} /c[orange]{1}{4} /cd- /c[red]{2}{5}`  
+Take special note of the `{4}` and `{5}`, which in this example are `-4` and `-3` (each value compared to the equipped item)
+
+
+## Info
+:::note[The textboxes don't work very well with long texts, it's recommended to edit your text outside and paste it into the box if there's not enough space in the box.]
+:::
+
+:::note[Properties and overrides are processed from top to bottom, so for certain things like Spell Damage Increase and Damage Increase you would want Spell Damage Increase *higher* on your list than Damage Increase.]
+:::
+
+:::note[If you want to edit properties outside of the game, using the **Export** button and then using a semi-visual editor such as https://jsoneditoronline.org/ works well.]
+:::
+
+:::note[Certain gumps like Vendor Search do not give the client item serials/data, the only tell the client what images to show and what tooltips to show, so only your overrides with the `ANY` layer will be applied to them because we don't know what layer the item is.]
+:::

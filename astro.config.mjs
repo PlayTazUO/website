@@ -39,9 +39,9 @@ export default defineConfig({
           ],
         },
         {
-          label: "Legion API",
+          label: "Documentation",
           items: [
-            { label: "Documentation", slug: "legion/api" },
+            { label: "Legion API", slug: "legion/api" },
             { label: "Legion Scripting", slug: "legion/lscript" },
             { label: "PyProfile", slug: "legion/pyprofile" },
             { label: "PyControl", slug: "legion/pycontrol" },
@@ -50,8 +50,8 @@ export default defineConfig({
           ],
         },
         {
-          label: "Reference",
-          autogenerate: { directory: "reference" },
+          label: "TazUO Wiki",
+          autogenerate: { directory: "wiki" },
         },
       ],
       plugins: [

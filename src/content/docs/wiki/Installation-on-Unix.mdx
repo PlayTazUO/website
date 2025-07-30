@@ -1,0 +1,70 @@
+---
+title: Installation on Unix
+description: Use our launcher.
+---
+
+import { Code } from '@astrojs/starlight/components';
+
+
+:::note[Automated Builds]
+Every change made to TazUO is automatically built on Mac, Ubuntu and Windows. [See here](https://github.com/bittiez/TazUO/actions)
+:::
+
+
+## Use our launcher.
+Check it out [here](https://github.com/bittiez/TUO-Launcher/releases/latest)
+
+## For Mac OS, courtesy of Pretzl   
+
+Clone TazUO:
+
+<Code code='git config --global url."https://".insteadOf git://' lang="bash" />
+
+<Code code="git clone https://github.com/bittiez/TazUO.git --recursive" lang="bash" />
+
+<Code code="cd TazUO/" lang="bash" />
+
+<Code code="nuget restore" lang="bash" />
+
+<Code code="dotnet publish -c Release" lang="bash" />
+
+Navigate to `TazUO/bin/Release`
+
+<Code code="chmod +x ClassicUO" lang="bash" />
+
+<Code code="./ClassicUO" lang="bash" />
+
+## This guide was done using Ubuntu, you may need to change a few commands depending on your OS
+
+<details><summary>Build from source</summary>
+
+<Code code="sudo apt install git" lang="bash" title="Install git" />
+
+<Code code="mkdir TazUO && cd TazUO" lang="bash" title="Create and enter TazUO folder" />
+
+For the next step you may have issues if you don't run this first: <Code code='git config --global url.https://.insteadOf git://' lang="bash" />, but you can try without it if you'd like.  
+
+<Code code="git clone https://github.com/bittiez/TazUO.git . --recursive" lang="bash" title="Clone TazUO into current folder" />  
+
+
+`sudo apt install dotnet-sdk-8.0` <-- Install dotnet  
+
+`sudo apt install zlib1g-dev` <-- Install Zlib  
+
+`dotnet publish src/ClassicUO.Client/ClassicUO.Client.csproj -c Release -o ../../bin/dist`  
+
+</details>
+
+<details><summary>Download prebuilt</summary>
+
+Download the latest zip [here](https://github.com/bittiez/TazUO/releases/latest).
+
+Extract wherever you'd like.
+
+</details>
+
+Make the `ClassicUO` file executable.  (`chmod +x ./Classicuo`
+
+Run that file via double clicking or terminal.  
+
+Error about libsdl? -> `sudo apt install libsdl2-2.0-0`

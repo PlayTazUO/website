@@ -1,0 +1,109 @@
+---
+title: TazUO Installation
+description: Using our launcher/updater We have a simple updater/launcher that will keep your game up to date with TazUO, if you'd like to use this visit Launcher Wiki|TazUO.
+---
+
+import { Code } from '@astrojs/starlight/components';
+
+
+## Using our launcher/updater
+We have a simple updater/launcher that will keep your game up to date with TazUO, if you'd like to use this visit [[Launcher Wiki|TazUO.Updater-Launcher]].
+
+> [!TIP]
+> TazUO recommends using the above launcher. It is easier to install, easier to manage profiles, and easier to stay up to date.
+
+***
+## Manual installation
+
+<details>
+<summary>Migrate from a CUO installation (Keep your settings and profile data) (Click here)</summary>  
+
+### Installation is easy:
+
+:::note[If you used the updater to install TUO, skip to **step 3**]
+:::
+
+1. Downloaded the [latest release](https://github.com/bittiez/TazUO/releases/latest)  
+
+       You need the TazUO.zip file from that release.
+
+2. Create a folder where you want TUO installed, for example `Documents/TazUO`
+
+3. Unzip the `ClassicUO.zip` file you downloaded in `step 1` into the folder you created in `step 2`
+
+4. Copy your old `settings.json` and `/Data/` folder from your **old CUO** install into your new directory
+```bash
+These can usually be found under ClassicUO/ClassicUO/
+            You can right click the ClassicUO shortcut on your desktop and hit "Open file location" for easier access.
+       
+       You may need to edit settings.json and update your ultimaonlinedirectory location.
+
+       You can skip this step(3) if you don't want your old settings and profiles(macros/gumps/spell bars/etc) copied over.
+```  
+
+5. Run ClassicUO.exe in your new directory!
+
+
+Your finished directory should look something like this(with a few more files than this):
+![image](https://user-images.githubusercontent.com/3859393/222996710-c5ead68e-4ac0-46ad-8308-b1edd03b6710.png)
+</details>
+
+<details>
+<summary>Fresh installation instructions(Click here)</summary>
+1. Follow the steps above, skipping `step 3`. 
+
+2. Run ClassicUO.exe once, it will create a `settings.json` file that you will need to populate with your UO directory, server info and optional assistant.
+</details>
+
+<details>
+<summary>Editing settings.json</summary>
+
+1. Open your TazUO folder
+
+<Code code="If you used the updater, open the TUO folder inside your TazUO folder." lang="bash" />
+
+2. Locate and open `settings.json`, you can use notepad or notepad++.
+
+3. Editing important settings  
+3.1 Shard ip and port  
+        Find and edit these lines as needed for your specific shard, their website should list their IP and PORT
+```json
+"ip": "login.shardaddress.com",
+  "port": 2593,
+``` 
+
+3.2 Ultima online installation directory  
+        Find and edit this line as needed for where you have Ultima Online installed (Not CUO or TazUO, your install from EA)
+<Code code=""ultimaonlinedirectory": "C:\\Program Files (x86)\\Electronic Arts\\Ultima Online Classic"," lang="json" />
+
+<details>
+<summary>Are you planning on using an assistant such as Razor Enhanced or Classic Assist?</summary>
+
+In the TazUO folder go to data. In that folder should be a folder named plugins. Drop your preferred client assistant, ex Razor Enhanced. 
+
+**Find and locate this line**
+```json
+"plugins": [
+  ]
+```bash
+**If you are using Razor Enhanced**
+```json
+"plugins": [
+    "Razor\\RazorEnhanced.exe"
+  ]
+```bash
+**If you are using Classic Assist**
+```json
+"plugins": [
+    "ClassicAssist\\ClassicAssist.dll"
+  ]
+```
+</details>
+</details>
+
+
+***
+
+# ⚠️ FAQ
+### "It's telling me my UO directory is invalid"  
+Make sure you either copied your `settings.json` and `/data/` folder over to the new directory ***or*** you have edited your `settings.json` with the correct information.

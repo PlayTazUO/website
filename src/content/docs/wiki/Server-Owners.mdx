@@ -1,0 +1,26 @@
+---
+title: Server Owners
+description: Hey there server owner, if you are interested in utilizing the Global Chat tab of the journal without breaking your current global chat system I would like to introduce you to the chat packet, it's a very easy modification of your current global chat system( usually used with c ).
+---
+
+import { Code } from '@astrojs/starlight/components';
+
+
+:::note[This is aimed towards ServUO  ]
+:::
+
+Hey there server owner, if you are interested in utilizing the Global Chat tab of the journal without breaking your current global chat system I would like to introduce you to the chat packet, it's a very easy modification of your current global chat system( usually used with `[c` ).
+
+Most chat systems today use a simple `mobile.SendMessage(FormattedMessageString)`, but that can be swapped out for some iteration of this:  
+```csharp
+foreach (Server.Network.NetState ns in Server.Network.NetState.Instances)
+    if (ns.Mobile != null)
+    {
+        ns.Mobile.Send(new Server.Engines.Chat.ChatMessagePacket(e.Mobile, 57, "0" + e.Mobile.Name, "THIS IS A TEST.")); //The 0 is a color code that's non functional but required
+    }
+```
+
+This will send the client a chat packet, which by default shows in the system chat the same as mobile.SendMessage does, but it also allows the client to process it as a chat message including CUO utilizing the Chat Message Hue, and for TazUO utilizing the separate journal tab:  
+![image](https://github.com/bittiez/ClassicUO/assets/3859393/75b68c6a-a2ef-461c-aa6b-f140b0fee489)
+
+It's also simple to change the formatting, the default `,` chat command sends the name portion of that packet as `<serial>PlayerName`, but using the above packet method I showed you can omit the serial if that is not desired.

@@ -1,0 +1,85 @@
+---
+title: Spell Indicators
+description: Customizable spell indicators for range, size, and casting time in TazUO.
+---
+
+import { Code } from '@astrojs/starlight/components';
+
+
+:::note[Version 3.9.0 and up required.  :::note[Version 3.13.0 and up required for certain features  ]]
+:::
+:::
+We've added a customizable spell indicator system with the following options, configured per spell:  
+[Range](#Range-indicator) - [Size/area indicator](#Spell-size-indicator) - [Casting time indicator](#Casting-time-indicator)
+
+:::note[As always I recommend https://jsoneditoronline.org for editing json files.  ]
+:::
+
+:::note[A general version of all spells will be maintained [here](https://gist.github.com/bittiez/c70ddcb58fc59f74a0c4d2c5b4fc6478)]
+:::
+
+## Features
+### Range indicator
+![image](https://github.com/user-attachments/assets/1ab8ef9d-a612-4911-a1f8-548d15522187)  
+Color and size can be configured via `CastRange` and `Hue` properties  
+
+### Spell size indicator
+![image](https://github.com/user-attachments/assets/638f558b-29ac-4a0b-b332-82d4bf7f67d3)  
+Color and size can be configured via `CursorSize`, `CursorHue`, and `IsLinear` properties  
+
+### Casting time indicator  
+![image](https://github.com/user-attachments/assets/c4b69ccb-cf34-4f17-93ce-50abf4eaff57)  
+Casting time can be configured via `CastTime` property in seconds
+
+## Options
+From `Options->TazUO->Misc` you can enable to disable this system, and download external configs(provided by friends or your server, or our shared one over [here](https://gist.github.com/bittiez/c70ddcb58fc59f74a0c4d2c5b4fc6478/raw/5b10d928c53d0cc02c61b639896ef69a9ef376d0/SpellVisualRange.json)  
+⚠️ Make sure when using the download option you **1.** Fully trust the source of your file and **2.** Use a link that only returns the pure json text
+
+## Setup
+After logging in once a new file will be created and populated with all spells, _**unconfigured**_ in `Data/Profiles/SpellVisualRange.json`  
+:::note[You can remove any spells not desired.  ]
+:::
+:::note[Range, Size and Cast time can be set to 0 if you want to disable any single feature of a specific spell.  ]
+:::
+:::note[All spells are triggered from `PowerWords`, if those are set up wrong the spell will not trigger correctly.  ]
+:::
+
+Open this file using a good JSON editor like https://jsoneditoronline.org and go to town!
+
+💯 If you want a good starting point make sure to check out [this version](https://gist.github.com/bittiez/c70ddcb58fc59f74a0c4d2c5b4fc6478)
+
+:::note[You can also place a `SpellVisualRange.json` inside individual character folders to override the global one. (`/Data/Profiles/Account/Server/Char/SpellVisualRange.json`)]
+:::
+
+### Example spell configuration
+```json
+{
+  "ID": 24,
+  "Name": "Wall of Stone",
+  "PowerWords": "In Sanct Ylem",
+  "CursorSize": 2,
+  "CastRange": 0,
+  "Hue": 32,
+  "CursorHue": 10,
+  "MaxDuration": 10,
+  "IsLinear": true,
+  "CastTime": 1.5,
+  "ShowCastRangeDuringCasting": false,
+  "FreezeCharacterWhileCasting": false
+}
+```
+This config will create a linear area where your cursor is, based on the direction of your cursor with a `CursorSize` of 2, meaning 1 (Cursor tile + 1 = 2) tile away from the cursor tile so this will show a line that is 3 tiles in length.  
+
+It's `CastRange` is set to 0 so we won't see a range indicator, and it's `CastTime` is 1.5 so it will show a progress bar for 1.5 seconds or until a target appears after casting.
+
+## Detailed spell config breakdown
+`ID` -> This is the spell ID built into CUO, it isn't technically used here anymore other than sorting.  
+`Name` -> This is the name of the spell, only included for easier identification while editing.  
+`PowerWords` -> These are **vital** and must match what your server sends exactly. You can use this for servers with custom spells. Power words are how this system identifies casting as the client doesn't really know when you are casting.  
+`CursorSize` -> This is the side of the indicator that appears where your cursor is. If `IsLinear` is true it will be a line at your cursor this many tiles away from the cursor. Otherwise it will be a square radius this many tiles away from the cursor.  
+`CastRange` -> This is a square radius around the player, it shows up when you get a Target **after** casting, unless `ShowCastRangeDuringCasting` is true, then it will show *while* you are actively casting.  
+`Hue` -> The color of the `CastRange`.  
+`CursorHue` -> The color of the `CursorSize`.  
+`MaxDuration` -> The time, in seconds, that all indicators will disappear if, for whatever reason, the system does not register that the spell was cast or canceled.  
+`CastTime` -> The time, in seconds, to display the cast progress bar to indicate how much time left until the spell is cast.  
+`FreezeCharacterWhileCasting` -> Freeze your character while casting

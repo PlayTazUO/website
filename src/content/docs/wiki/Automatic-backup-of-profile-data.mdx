@@ -1,0 +1,38 @@
+---
+title: Automatic backup of profile data
+description: Using launch arguments of CUO you can automate backing up your profile data (All your individual character settings) Requirements You will need a place to store this data, like DropBox or OneDrive that give you a folder to store files that are synced online.
+---
+
+import { Code } from '@astrojs/starlight/components';
+
+
+Using launch arguments of CUO you can automate backing up your profile data (All your individual character settings)  
+
+:::note[This guide assumes you are using Windows.]
+:::
+
+
+## Requirements
+You will need a place to store this data, like DropBox or OneDrive that give you a folder to store files that are synced online.
+
+## Instructions
+### Step 1
+Create a new shortcut of your `ClassicUO.exe` file
+
+### Step 2
+Right click and open the Properties for the shortcut
+
+### Step 3
+Add `-profilespath PATH` to the end of the `Target` field like so:  
+![image](https://github.com/bittiez/TazUO/assets/3859393/0d118f2d-550f-410d-bdd9-b4a6afe0a7ec)
+
+
+Now CUO/TUO will use that folder for storing profile data, and allow your favorite cloud storage to keep the cloud version up-to-date.
+
+
+## Notes
+:::note[You may want to manually move your profile data to the new location before running, using this method will no longer store the profile data in the CUO directory. (Normally stored under `/Data/Profiles/`)]
+:::
+
+:::note[This does not store a backup on your pc, it changes the location of the profile data but utilizing a cloud storage service will keep a copy online for you.]
+:::

@@ -1,0 +1,224 @@
+---
+title: Grid highlights
+description: This feature lets you highlight grid cells based on item properties for quicker looting by hand.
+---
+
+import { Code } from '@astrojs/starlight/components';
+
+
+This feature lets you highlight grid cells based on item properties for quicker looting by hand.
+
+## Options
+![image](https://github.com/user-attachments/assets/25ae465b-c8ec-45fd-b354-058febb9ab15)  
+ 
+From any grid container, click the top-right button to open highlight settings:  
+![image](https://github.com/user-attachments/assets/301e8557-8fb7-425d-880c-04cf0b687828)  
+
+Here you can add configs and open their properties menu.  
+
+
+:::note[If different configurations have the same properties, the lowest one on the list will be the final highlight color]
+:::
+
+
+![image](https://user-images.githubusercontent.com/3859393/228672476-c48740ae-2b5f-4b4a-ac59-a53b7621bfe3.png)
+
+
+
+# Detail explanation:
+## Grid Highlight System
+
+The Grid Highlight system allows you to visually highlight items in grid containers based on customizable matching rules. It is useful for quickly identifying valuable, rare, or unwanted items in loot or inventory grids.
+## Overview
+
+Each highlight rule defines a configuration that matches certain item properties and assigns a hue (color) to highlight matching items. Multiple rules can be configured, and each rule is editable from the in-game Grid Highlight Menu.
+
+## Core Features
+### Match by Properties
+
+You can define any number of item property names that a rule should match. These properties are based on tooltip attributes like:
+
+    "Hit Chance Increase"
+
+    "Faster Casting"
+
+    "Swing Speed Increase"
+
+Each property can have an optional minimum value threshold.
+
+    Example:
+    "Swing Speed Increase" ≥ 10
+
+### Accept Extra Properties
+
+The Allow Extra Properties toggle determines whether the item is allowed to have additional properties beyond the ones listed.
+
+    ✅ On: Item must match your listed properties, but can also have extras.
+
+    ❌ Off: Item must exactly match only the listed properties.
+
+## Exclude Negatives
+
+You can add disqualifying properties that invalidate an item match if present.
+
+Typical examples:
+
+    "Brittle"
+
+    "Cursed"
+
+    "Antique"
+
+If any of these are found on the item, the rule will not match.
+## Filter by Rarity
+
+You can restrict matches to items that include a specific rarity classification, such as:
+
+    "Greater Artifact"
+
+    "Legendary Artifact"
+
+If the item doesn’t contain one of the selected rarities, it will not be highlighted.
+## Equipment Slot Filtering
+
+Each highlight rule can specify what equipment slots it is intended for:
+
+    Helm, Gloves, Legs, Chest, Ring, Weapon, etc.
+
+    Or a fallback “No Slot / Other” for miscellaneous items.
+
+This ensures only applicable items are evaluated against a rule.
+
+## Weight Filter
+
+Rules can optionally exclude items that exceed a weight threshold, typically used to filter out cumbersome or penalizing items.
+
+For example:
+
+    "Disqualify if Weight ≥ 50"
+
+## Configuration & UI
+### In-Game Menu
+
+Accessible via:
+
+Options → Grid Highlight → Open Menu **or** Top-Right button on a grid container
+
+Includes:
+
+    Add / Remove Rules
+
+    Edit Property Lists
+
+    Import / Export settings
+
+    Custom hue selectors
+
+    Configurable match options
+
+## Saving & Exporting
+
+    Rules are stored in your Profile JSON (profile.json) for each character.
+
+    You can export all highlights as a .json file.
+
+    You can import previously saved configurations at any time.
+
+## Custom Property Sets
+
+The system supports configurable property categories, allowing compatibility with custom server property sets.
+
+Editable categories:
+
+    Regular stats (e.g. "Hit Chance Increase")
+
+    Slayers and Super Slayers
+
+    Resistances
+
+    Negatives
+
+    Rarities
+
+Matching Engine Logic
+
+    If rule is not active for the slot, skip.
+
+    If item contains excluded negatives, reject.
+
+    If item is missing required rarity, reject.
+
+    If Accept Extra Properties is false`, perform strict comparison:
+
+        Must contain only and all listed properties.
+
+    If Accept Extra Properties is true, soft comparison:
+
+        Must contain all required properties, others allowed.
+
+## Example Use Case:
+```json
+[
+    {
+      "name": "Weapon",
+      "hue": 180,
+      "properties": [
+        {
+          "name": "Hit Mana Leech",
+          "min_value": 75,
+          "is_optional": false
+        },
+        {
+          "name": "Hit Stamina Leech",
+          "min_value": 50,
+          "is_optional": false
+        },
+        {
+          "name": "Hit Lower Defense",
+          "min_value": 50,
+          "is_optional": false
+        },
+        {
+          "name": "Damage Increase",
+          "min_value": 40,
+          "is_optional": false
+        }
+      ],
+      "accept_extra_properties": true,
+      "minimum_property": 0,
+      "exclude_negatives": [
+        "Antique",
+        "Brittle",
+        "Cursed"
+      ],
+      "required_rarities": [],
+      "grid_highlight_slot": {
+        "talisman": false,
+        "right_hand": true,
+        "left_hand": true,
+        "head": false,
+        "earring": false,
+        "neck": false,
+        "chest": false,
+        "shirt": false,
+        "back": false,
+        "robe": false,
+        "arms": false,
+        "hands": false,
+        "bracelet": false,
+        "ring": false,
+        "belt": false,
+        "skirt": false,
+        "legs": false,
+        "footwear": false
+      }
+    }
+]
+```
+## Tips
+
+    Use high-contrast hues like 27 (orange), 82 (green), or 40 (blue) for easy spotting.
+
+    Export your config frequently when experimenting with new loot templates.
+
+    Use the "Other / No Slot" checkbox for scrolls, runes, or rare objects without equipment slots.

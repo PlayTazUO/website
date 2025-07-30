@@ -1,0 +1,25 @@
+---
+title: Simple Auto Loot
+description: TazUO has a built in simple auto loot feature.
+---
+
+import { Code } from '@astrojs/starlight/components';
+
+
+:::note[3.10.0 and up required.  ]
+:::
+
+TazUO has a built in simple auto loot feature.  
+Easily loot items by graphic and hue(color) automatically from corpses.  
+`Options->TazUO->AutoLoot`
+
+## Features
+- Easily add items to your loot list by `Shift + Clicking` the item in a grid container.  
+- Auto duplicate checks.  
+- Easy to edit JSON save file if desired.  
+
+Items are looted based on `graphic`(the first number) and `hue`(the second number).  
+If `hue` is set to `-1`, `hue` will be ignored and only `graphic` will be checked.  
+You can also **optionally** use regex to for matching. This is more technical and [regex101](https://regex101.com/) will be your friend.  
+
+![image](https://github.com/user-attachments/assets/3a72784e-033c-486c-be99-3bdc318b8a13)
