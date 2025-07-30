@@ -2,246 +2,106 @@
 title: How to Install
 description: A guide to installing the TazUO client.
 ---
-import { Card, CardGrid, Badge, Steps, Tabs, TabItem, LinkButton } from '@astrojs/starlight/components';
 
+import {
+  Card,
+  CardGrid,
+  Badge,
+  Steps,
+  Tabs,
+  TabItem,
+  LinkButton,
+} from "@astrojs/starlight/components";
+
+:::note[About]
 TazUO is a modern Ultima Online client that provides enhanced features and improved performance. This guide will walk you through the installation process for different operating systems.
+:::
+
 
 ## System Requirements
 
 <Card title="Minimum Requirements" icon="laptop">
-- **Operating System**: Windows 10/11, macOS 10.15+, or Linux (Ubuntu 20.04+)
-- **RAM**: 4 GB minimum, 8 GB recommended
-- **Storage**: 2 GB available space
-- **Graphics**: DirectX 11 compatible graphics card
-- **Network**: Broadband internet connection
+  <Badge text="Recommended" variant="success" /> 
+  - At least a Toaster.
 </Card>
 
 ## Installation Guide
 
 <Tabs>
 <TabItem icon='laptop' label="Windows">
+<Steps>
+1.  **Download TazUO Launcher**
 
-   <Steps>
+    <LinkButton
+      href="https://github.com/PlayTazUO/TUO-Launcher/releases/tag/TazUO-Launcher"
+      variant="secondary"
+      icon="download"
+    >
+      Windows
+    </LinkButton>
 
-   1. **Download TazUO**
+2.  **Run the Launcher**
 
-      <LinkButton href="https://github.com/PlayTazUO/TazUO/releases" variant="secondary" icon='download'>Windows</LinkButton>
+    1. Creating your first profile
 
-   2. **Run the Installer**
-      - Double-click the downloaded installer file
-      - If Windows SmartScreen appears, click "More info" then "Run anyway"
-      - Accept the User Account Control (UAC) prompt if it appears
+3.  **Ready to play**
 
-   3. **Choose Installation Directory**
-      - Select your preferred installation directory (default is recommended)
-      - Ensure you have at least 2 GB of free space
-      - Click "Next" to continue
-
-   4. **Install Dependencies**
-      The installer will automatically download and install required dependencies:
-      - .NET Framework 6.0 or later
-      - Visual C++ Redistributables
-      - DirectX Runtime
-
-   5. **Complete Installation**
-      - Click "Install" to begin the installation process
-      - Wait for the installation to complete (this may take a few minutes)
-      - Click "Finish" when done
-
-   6. **First Launch**
-      - Launch TazUO from the desktop shortcut or Start menu
-      - The client will perform initial setup and create configuration files
-      - You may need to configure your Ultima Online game files path
-
-   </Steps>
-
+</Steps>
 </TabItem>
 <TabItem icon='apple' label="macOS">
-
 <Steps>
+1.  **Download TazUO Launcher**
 
-1. **Download TazUO**
-   Visit the [official TazUO releases page](https://github.com/TazUO/TazUO/releases) and download the latest macOS package (`TazUO-x.x.x.dmg`).
+    <LinkButton
+      href="https://github.com/PlayTazUO/TUO-Launcher/releases/tag/TazUO-Launcher"
+      variant="secondary"
+      icon="download"
+    >
+      macOS
+    </LinkButton>
 
-2. **Mount the Disk Image**
-   - Double-click the downloaded `.dmg` file
-   - A new window will open showing the TazUO application
+2.  **Run the Launcher**
 
-3. **Install the Application**
-   - Drag the TazUO application to your Applications folder
-   - Wait for the copy process to complete
-   - Eject the disk image when finished
+    1. Creating your first profile
 
-4. **Handle Security Settings**
-   Since TazUO is not signed by Apple:
-   - Right-click on TazUO in Applications folder
-   - Select "Open" from the context menu
-   - Click "Open" in the security dialog that appears
-
-5. **Install Mono Framework** (if required)
-   TazUO may require Mono for macOS:
-   - Download Mono from [mono-project.com](https://www.mono-project.com/download/stable/)
-   - Install the Mono framework following their instructions
-
-6. **Configure Wine** (for Classic Client compatibility)
-   If you need Classic Client features:
-   - Install Wine using Homebrew: `brew install wine`
-   - Configure Wine for Windows application compatibility
-
-7. **First Launch**
-   - Open TazUO from the Applications folder
-   - Configure your Ultima Online game files path
-   - Set up your server connections
-
+3.  **Ready to play**
 </Steps>
-
 </TabItem>
 <TabItem icon='linux' label="Linux">
-
 <Steps>
+1.  **Download TazUO Launcher**
 
-1. **Download TazUO**
-   Visit the [official TazUO releases page](https://github.com/TazUO/TazUO/releases) and download:
-   - For Ubuntu/Debian: `TazUO-x.x.x.deb`
-   - For other distributions: `TazUO-x.x.x.tar.gz`
+    <LinkButton
+      href="https://github.com/PlayTazUO/TUO-Launcher/releases/tag/TazUO-Launcher"
+      variant="secondary"
+      icon="download"
+    >
+      Linux
+    </LinkButton>
 
-2. **Install Dependencies**
-   Update your package manager and install required dependencies:
-   
-   **Ubuntu/Debian:**
-   ```bash
-   sudo apt update
-   sudo apt install mono-complete libmono-system-windows-forms4.0-cil
-   ```
-   
-   **Fedora/CentOS:**
-   ```bash
-   sudo dnf install mono-complete mono-winforms
-   ```
-   
-   **Arch Linux:**
-   ```bash
-   sudo pacman -S mono
-   ```
+2.  **Run the Launcher**
 
-3. **Install TazUO**
-   **For .deb package:**
-   ```bash
-   sudo dpkg -i TazUO-x.x.x.deb
-   sudo apt-get install -f  # Fix any dependency issues
-   ```
-   
-   **For .tar.gz archive:**
-   ```bash
-   tar -xzf TazUO-x.x.x.tar.gz
-   sudo mv TazUO /opt/
-   sudo ln -s /opt/TazUO/TazUO /usr/local/bin/tazuo
-   ```
+    1. Creating your first profile
 
-4. **Configure Graphics Drivers**
-   Ensure you have proper graphics drivers installed:
-   - **NVIDIA**: Install proprietary drivers via your distribution's driver manager
-   - **AMD**: Mesa drivers are usually sufficient
-   - **Intel**: Mesa drivers are usually pre-installed
-
-5. **Set Permissions**
-   Make sure TazUO has execute permissions:
-   ```bash
-   chmod +x /opt/TazUO/TazUO
-   ```
-
-6. **Create Desktop Entry** (optional)
-   Create a desktop launcher:
-   ```bash
-   cat > ~/.local/share/applications/tazuo.desktop << EOF
-   [Desktop Entry]
-   Name=TazUO
-   Comment=Ultima Online Client
-   Exec=/opt/TazUO/TazUO
-   Icon=/opt/TazUO/icon.png
-   Terminal=false
-   Type=Application
-   Categories=Game;
-   EOF
-   ```
-
-7. **First Launch**
-   - Run TazUO from terminal: `tazuo`
-   - Or use the desktop launcher if created
-   - Configure your Ultima Online game files path
-
+3.  **Ready to play**
 </Steps>
-
 </TabItem>
 </Tabs>
 
-## Post-Installation Setup
-
-<Steps>
-
-1. **Configure Game Files Path**
-   On first launch, TazUO will ask for your Ultima Online installation directory. Point it to where your UO game files are located.
-
-2. **Set Up Server Profiles**
-   - Add your preferred servers in the server list
-   - Configure connection settings for each server
-   - Test connections to ensure they work properly
-
-3. **Configure Graphics Settings**
-   - Adjust resolution and graphics quality settings
-   - Enable or disable fullscreen mode
-   - Configure UI scaling if needed
-
-4. **Import Existing Profiles** (optional)
-   If migrating from another client:
-   - Import character profiles and macros
-   - Transfer custom UI configurations
-   - Copy over any custom artwork or modifications
-
-</Steps>
-
-## Troubleshooting
-
-
-<Card title="Client Won't Start" icon="warning">
-- Check if all dependencies are installed
-- Verify game files path is correct
-- Run as administrator (Windows) or with sudo (Linux)
-- Check antivirus software isn't blocking the client
-</Card>
-
-<Card title="Graphics Issues" icon="puzzle">
-- Update your graphics drivers
-- Try running in compatibility mode
-- Disable hardware acceleration if needed
-- Check DirectX/OpenGL support
-</Card>
-
-<Card title="Connection Problems" icon="rocket">
-- Verify server address and port
-- Check firewall settings
-- Ensure internet connection is stable
-- Try different server profiles
-</Card>
-
-<Card title="Performance Issues" icon="setting">
-- Lower graphics quality settings
-- Close other resource-intensive applications
-- Increase virtual memory/swap space
-- Check for background processes
-</Card>
-
-
+:::tip[Pro Tip]
+Keep TazUO updated by regularly checking for new releases. The client
+includes an auto-updater that will notify you of available updates. 
+:::
 
 ## Getting Help
 
-If you encounter issues during installation:
+<Card>
+  Join our community on Discord for support, suggestions, and discussions about TazUO.
+   <LinkButton href="https://discord.gg/tazuo" variant="secondary" icon="discord">
+      Join our Discord
+   </LinkButton>
+</Card>
 
-- Check the [TazUO GitHub Issues](https://github.com/TazUO/TazUO/issues) page
-- Visit the official Discord server for community support
-- Consult the troubleshooting section in the documentation
-- Report bugs with detailed system information
 
 
-:::tip[Pro Tip]
-Keep TazUO updated by regularly checking for new releases. The client includes an auto-updater that will notify you of available updates.
+
