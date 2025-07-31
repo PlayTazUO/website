@@ -21,7 +21,7 @@ You can now type `-updateapi` in game to download the latest API.py file.
 
 [Additional notes](notes.md)  
 
-*This was generated on `7/28/25`.*
+*This was generated on `7/31/25`.*
 
 ## Properties
 ### `JournalEntries`
@@ -128,7 +128,7 @@ You can now type `-updateapi` in game to download the latest API.py file.
 
 ## Methods
 ### ProcessCallbacks
-`()`
+
  Use this when you need to wait for players to click buttons.
  Example:
  ```py
@@ -203,7 +203,7 @@ You can now type `-updateapi` in game to download the latest API.py file.
 ---
 
 ### ClearSharedVars
-`()`
+
  Clear all shared vars.
  Example:
  ```py
@@ -216,7 +216,7 @@ You can now type `-updateapi` in game to download the latest API.py file.
 ---
 
 ### CloseGumps
-`()`
+
  Close all gumps created by the API unless marked to remain open.
 
 
@@ -246,7 +246,7 @@ You can now type `-updateapi` in game to download the latest API.py file.
 ---
 
 ### BandageSelf
-`()`
+
  Attempt to bandage yourself. Older clients this will not work, you will need to find a bandage, use it, and target yourself.
  Example:
  ```py
@@ -265,7 +265,7 @@ You can now type `-updateapi` in game to download the latest API.py file.
 ---
 
 ### ClearLeftHand
-`()`
+
  If you have an item in your left hand, move it to your backpack
  Sets API.Found to the item's serial.
  Example:
@@ -281,7 +281,7 @@ You can now type `-updateapi` in game to download the latest API.py file.
 ---
 
 ### ClearRightHand
-`()`
+
  If you have an item in your right hand, move it to your backpack
  Sets API.Found to the item's serial.
  Example:
@@ -399,7 +399,7 @@ You can now type `-updateapi` in game to download the latest API.py file.
 ---
 
 ### ClearMoveQueue
-`()`
+
  Clear the move item que of all items.
 
 
@@ -591,7 +591,7 @@ You can now type `-updateapi` in game to download the latest API.py file.
 ---
 
 ### ActiveBuffs
-`()`
+
  Get a list of all buffs that are active.
  See [Buff](Buff.md) to see what attributes are available.
  Buff does not get updated after you access it in python, you will need to call this again to get the latest buff data.
@@ -973,7 +973,7 @@ You can now type `-updateapi` in game to download the latest API.py file.
 ---
 
 ### ClearIgnoreList
-`()`
+
  Clears the ignore list. Allowing functions to see those items again.
  Example:
  ```py
@@ -1054,7 +1054,7 @@ You can now type `-updateapi` in game to download the latest API.py file.
 ---
 
 ### Pathfinding
-`()`
+
  Check if you are already pathfinding.
  Example:
  ```py
@@ -1069,7 +1069,7 @@ You can now type `-updateapi` in game to download the latest API.py file.
 ---
 
 ### CancelPathfinding
-`()`
+
  Cancel pathfinding.
  Example:
  ```py
@@ -1131,7 +1131,7 @@ You can now type `-updateapi` in game to download the latest API.py file.
 ---
 
 ### CancelAutoFollow
-`()`
+
  Cancel auto follow mode.
  Example:
  ```py
@@ -1362,7 +1362,7 @@ You can now type `-updateapi` in game to download the latest API.py file.
 ---
 
 ### TargetSelf
-`()`
+
  Target yourself.
  Example:
  ```py
@@ -1418,7 +1418,7 @@ You can now type `-updateapi` in game to download the latest API.py file.
 ---
 
 ### CancelTarget
-`()`
+
  Cancel targeting.
  Example:
  ```py
@@ -1453,7 +1453,7 @@ You can now type `-updateapi` in game to download the latest API.py file.
 ---
 
 ### GetMap
-`()`
+
  Get the current map index.
  Standard maps are:
  0 = Fel
@@ -1509,7 +1509,7 @@ You can now type `-updateapi` in game to download the latest API.py file.
 ---
 
 ### Logout
-`()`
+
  Logout of the game.
  Example:
  ```py
@@ -1650,7 +1650,7 @@ You can now type `-updateapi` in game to download the latest API.py file.
 ---
 
 ### ToggleFly
-`()`
+
  Toggle flying if you are a gargoyle.
  Example:
  ```py
@@ -1683,7 +1683,7 @@ You can now type `-updateapi` in game to download the latest API.py file.
 ---
 
 ### PrimaryAbilityActive
-`()`
+
  Check if your primary ability is active.
  Example:
  ```py
@@ -1697,7 +1697,7 @@ You can now type `-updateapi` in game to download the latest API.py file.
 ---
 
 ### SecondaryAbilityActive
-`()`
+
  Check if your secondary ability is active.
  Example:
  ```py
@@ -1752,7 +1752,7 @@ You can now type `-updateapi` in game to download the latest API.py file.
 ---
 
 ### ClearJournal
-`()`
+
  Clear your journal(This is specific for each script).
  Example:
  ```py
@@ -1784,7 +1784,7 @@ You can now type `-updateapi` in game to download the latest API.py file.
 ---
 
 ### Stop
-`()`
+
  Stops the current script.
  Example:
  ```py
@@ -1797,7 +1797,7 @@ You can now type `-updateapi` in game to download the latest API.py file.
 ---
 
 ### ToggleAutoLoot
-`()`
+
  Toggle autolooting on or off.
  Example:
  ```py
@@ -1970,7 +1970,7 @@ You can now type `-updateapi` in game to download the latest API.py file.
 ---
 
 ### GetAllMobiles
-`()`
+
  Return a list of all mobiles the client is aware of.
  Example:
  ```py
@@ -2595,7 +2595,7 @@ You can now type `-updateapi` in game to download the latest API.py file.
 ---
 
 ### IsProcessingMoveQue
-`()`
+
  Check if the move item queue is being processed. You can use this to prevent actions if the queue is being processed.
  Example:
  ```py

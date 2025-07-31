@@ -107,7 +107,7 @@ description: PyControl class documentation
 ---
 
 ### GetX
-`()`
+
  Used in python API
 
 
@@ -116,7 +116,7 @@ description: PyControl class documentation
 ---
 
 ### GetY
-`()`
+
  Used in python API
 
 

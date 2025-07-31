@@ -39,7 +39,7 @@ description:  Represents a Python-accessible entity in the game world, such as a
 
 ## Methods
 ### ToString
-`()`
+
  Returns a readable string representation of the entity.
  Used when printing or converting the object to a string in Python scripts.
 

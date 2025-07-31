@@ -75,7 +75,7 @@ description:  Base class for all Python-accessible game world objects.   Encapsu
 ---
 
 ### ToString
-`()`
+
  Returns a readable string representation of the game object.
  Used when printing or converting the object to a string in Python scripts.
 
@@ -85,7 +85,7 @@ description:  Base class for all Python-accessible game world objects.   Encapsu
 ---
 
 ### __repr__
-`()`
+
  Returns a detailed string representation of the object.
  This string is used by Python’s built-in <c>repr()</c> function.
 
