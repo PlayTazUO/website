@@ -132,8 +132,7 @@ jobs:
         run: |
           echo "Building Astro documentation..."
           npm run build
-          echo "Build completed. Checking dist directory:"
-          touch dist/.nojekyll
+          echo "Build completed. Checking dist directory:"          
           ls -la dist/ || echo "dist directory not found"
 
       - name: Deploy to main branch
@@ -174,6 +173,8 @@ jobs:
           # Copy built files to main branch
           cp -r "$TEMP_DIST"/* .
           echo "Copied files from $TEMP_DIST to main branch"
+
+          touch .nojekyll
           
           # Clean up temporary directory
           rm -rf "$TEMP_DIST"
