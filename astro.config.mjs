@@ -40,11 +40,11 @@ export default defineConfig({
         },
         {
           label: "TazUO Wiki",
-          autogenerate: { directory: "wiki" },
+          autogenerate: { directory: "wiki" , collapsed: true },
         },
         {
           label: "Legion Scripting",
-          autogenerate: { directory: "legion" },
+          autogenerate: { directory: "legion" , collapsed: true },
         },
       ],
       plugins: [
