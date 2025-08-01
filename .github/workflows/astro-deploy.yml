@@ -1,0 +1,134 @@
+# .github/workflows/build-docs.yml
+name: Build Astro Docs from TazUO
+
+on:
+  # Allow manual trigger
+  workflow_dispatch:
+    inputs:
+      source_repo:
+        description: 'Source repository (owner/repo)'
+        required: true
+        default: 'PlayTazUO/TazUO'
+      source_branch:
+        description: 'Source repository branch'
+        required: false
+        default: 'dev'
+      wiki_repo:
+        description: 'Wiki repository (owner/repo)'
+        required: true
+        default: 'PlayTazUO/TazUO.wiki'
+      wiki_branch:
+        description: 'Wiki repository branch'
+        required: false
+        default: 'main'
+  
+  # Trigger from external repository via repository_dispatch
+  repository_dispatch:
+    types: [build-docs]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout docs repository
+        uses: actions/checkout@v4
+        with:
+          # Checkout the branch that has your Astro setup
+          ref: astro  # Replace with your actual docs branch name
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0  # Fetch all history for all branches
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Clone source repository
+        env:
+          SOURCE_REPO: ${{ github.event.inputs.source_repo || github.event.client_payload.source_repo || 'PlayTazUO/TazUO' }}
+          SOURCE_BRANCH: ${{ github.event.inputs.source_branch || github.event.client_payload.source_branch || 'main' }}
+          # Use PAT if you need to access private repos
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "Cloning source repository: $SOURCE_REPO"
+          git clone https://github.com/$SOURCE_REPO.git source-repo
+          cd source-repo
+          git checkout $SOURCE_BRANCH
+          cd ..
+
+      - name: Clone wiki repository
+        env:
+          WIKI_REPO: ${{ github.event.inputs.wiki_repo || github.event.client_payload.wiki_repo || 'PlayTazUO/TazUO.wiki' }}
+          WIKI_BRANCH: ${{ github.event.inputs.wiki_branch || github.event.client_payload.wiki_branch || 'main' }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "Cloning wiki repository: $WIKI_REPO"
+          git clone https://github.com/$WIKI_REPO.git wiki-repo
+          cd wiki-repo
+          git checkout $WIKI_BRANCH
+          cd ..
+
+      - name: Copy content from source repositories
+        run: |
+          # Create content directory if it doesn't exist
+          mkdir -p src/content
+          
+          # Copy specific directories from source repo
+          if [ -d "source-repo/src/ClassicUO.Client/LegionScripting/docs/" ]; then
+            echo "Copying docs from source repository..."
+            cp -r source-repo/src/ClassicUO.Client/LegionScripting/docs/* src/content/docs/legion
+          fi
+          
+          # Copy content from wiki repo
+          if [ -d "wiki-repo" ]; then
+            echo "Copying content from wiki repository..."
+            cp -r wiki-repo/* src/content/docs/wiki
+          fi
+
+          # List copied content for debugging
+          echo "Content structure after copying:"
+          find src/content -type f -name "*.md, *.mdx" | head -20
+
+      - name: Build Astro site
+        run: |
+          echo "Building Astro documentation..."
+          npm run build
+
+      - name: Deploy to main branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Configure git
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          
+          # Create or switch to main branch
+          git checkout main || git checkout -b main
+          
+          # Remove existing files (except .git and .github)
+          find . -maxdepth 1 ! -name '.git' ! -name '.github' ! -name '.' -exec rm -rf {} +
+          
+          # Copy built files to main branch
+          cp -r dist/* .
+          
+          # Add and commit changes
+          git add .
+          
+          # Only commit if there are changes
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Deploy docs: $(date '+%Y-%m-%d %H:%M:%S')"
+            git push origin main
+            echo "Successfully deployed to main branch"
+          fi
+
+      - name: Cleanup
+        if: always()
+        run: |
+          rm -rf source-repo wiki-repo
