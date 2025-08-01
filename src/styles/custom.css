@@ -16,19 +16,21 @@
   box-shadow: var(--sl-shadow-medium);
 }
 
-.sl-container, .starlight-container, .main-content, .content-container {
-  width: 100%;
-  max-width: 2000px;
-  margin-left: auto;
-  margin-right: auto;
-}
+@media (min-width: 91rem) {
+  .sl-container, .starlight-container, .main-content, .content-container {
+    width: 100%;
+    max-width: 2000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-.sl-sidebar, .starlight-sidebar, .sidebar {
-  max-width: 320px;
-  min-width: 220px;
-}
+  .sl-sidebar, .starlight-sidebar, .sidebar {
+    max-width: 320px;
+    min-width: 220px;
+  }
 
-.sl-toc, .starlight-toc, .right-sidebar {
-  max-width: 320px;
-  min-width: 150px;
+  .sl-toc, .starlight-toc, .right-sidebar {
+    max-width: 320px;
+    min-width: 150px;
+  }
 }
