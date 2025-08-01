@@ -133,8 +133,8 @@ jobs:
           echo "Building Astro documentation..."
           npm run build
           echo "Build completed. Checking dist directory:"
-          ls -la dist/ || echo "dist directory not found"
           touch dist/.nojekyll
+          ls -la dist/ || echo "dist directory not found"
 
       - name: Deploy to main branch
         env:
