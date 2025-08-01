@@ -39,26 +39,12 @@ export default defineConfig({
           ],
         },
         {
-          label: "Documentation",
-          items: [
-            { label: "Legion API", slug: "legion/api" },
-            { label: "Legion Scripting", slug: "legion/lscript" },
-            { label: "PyProfile", slug: "legion/pyprofile" },
-            { label: "PyControl", slug: "legion/pycontrol" },
-            { label: "PyEntity", slug: "legion/pyentity" },
-            { label: "PyGameObject", slug: "legion/pygameobject" },
-            { label: "PyItem", slug: "legion/pyitem" },
-            { label: "PyLand", slug: "legion/pyland" },
-            { label: "PyMobile", slug: "legion/pymobile" },
-            { label: "PyMulti", slug: "legion/pymulti" },
-            { label: "PyStatic", slug: "legion/pystatic" },
-            { label: "Buff", slug: "legion/buff" },
-            { label: "Additional Notes", slug: "legion/notes" },
-          ],
-        },
-        {
           label: "TazUO Wiki",
           autogenerate: { directory: "wiki" },
+        },
+        {
+          label: "Legion Scripting",
+          autogenerate: { directory: "legion" },
         },
       ],
       plugins: [
