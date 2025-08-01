@@ -17,10 +17,6 @@ on:
         description: 'Wiki repository (owner/repo)'
         required: true
         default: 'PlayTazUO/TazUO.wiki'
-      wiki_branch:
-        description: 'Wiki repository branch'
-        required: false
-        default: 'main'
   
   # Trigger from external repository via repository_dispatch
   repository_dispatch:
@@ -64,14 +60,10 @@ jobs:
       - name: Clone wiki repository
         env:
           WIKI_REPO: ${{ github.event.inputs.wiki_repo || github.event.client_payload.wiki_repo || 'PlayTazUO/TazUO.wiki' }}
-          WIKI_BRANCH: ${{ github.event.inputs.wiki_branch || github.event.client_payload.wiki_branch || 'main' }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo "Cloning wiki repository: $WIKI_REPO"
           git clone https://github.com/$WIKI_REPO.git wiki-repo
-          cd wiki-repo
-          git checkout $WIKI_BRANCH
-          cd ..
 
       - name: Copy content from source repositories
         run: |
