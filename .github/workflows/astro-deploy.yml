@@ -80,11 +80,39 @@ jobs:
           if [ -d "wiki-repo" ]; then
             echo "Copying content from wiki repository..."
             cp -r wiki-repo/* src/content/docs/wiki
+            
+            echo "Converting .md files to .mdx with frontmatter..."
+            find src/content/docs/wiki -name "*.md" -type f | while read -r file; do
+              # Get the filename without path and extension
+              filename=$(basename "$file" .md)
+              
+              # Create temporary file with frontmatter
+              temp_file=$(mktemp)
+              
+              # Write frontmatter to temp file
+              cat > "$temp_file" << EOF
+          ---
+          title: $filename
+          description: 
+          ---
+          import { Code } from '@astrojs/starlight/components';
+          
+          EOF
+              
+              # Append original content to temp file
+              cat "$file" >> "$temp_file"
+              
+              # Replace original file with new content and rename to .mdx
+              mv "$temp_file" "${file%.md}.mdx"
+              
+              # Remove original .md file
+              rm "$file"
+              
+              echo "Converted: $file -> ${file%.md}.mdx"
+            done
+            
+            echo "Conversion complete!"
           fi
-
-          # List copied content for debugging
-          echo "Content structure after copying:"
-          find src/content -type f -name "*.md, *.mdx" | head -20
 
       - name: Build Astro site
         run: |
