@@ -95,7 +95,6 @@ jobs:
               cat > "$temp_file" << EOF
           ---
           title: $filename
-          description: 
           ---
           import { Code } from '@astrojs/starlight/components';
           
