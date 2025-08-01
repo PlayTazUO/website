@@ -76,6 +76,8 @@ jobs:
           if [ -d "source-repo/src/ClassicUO.Client/LegionScripting/docs/" ]; then
             echo "Copying docs from source repository..."
             cp -r source-repo/src/ClassicUO.Client/LegionScripting/docs/* src/content/docs/legion
+          else
+            echo "Source docs directory not found"
           fi
           
           # Copy content from wiki repo
@@ -113,29 +115,67 @@ jobs:
             done
             
             echo "Conversion complete!"
+          else
+            echo "Wiki repository not found"
           fi
+
+      - name: Debug - List current directory contents
+        run: |
+          echo "Current directory contents:"
+          ls -la
+          echo "Source content structure:"
+          find src -type f -name "*.mdx" | head -10
+          echo "Package.json exists:"
+          ls -la package.json || echo "package.json not found"
 
       - name: Build Astro site
         run: |
           echo "Building Astro documentation..."
           npm run build
+          echo "Build completed. Checking dist directory:"
+          ls -la dist/ || echo "dist directory not found"
 
       - name: Deploy to main branch
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          # Store current working directory (where dist was built)
+          BUILD_DIR=$(pwd)
+          echo "Build directory: $BUILD_DIR"
+          
+          # Check if dist directory exists and has content
+          if [ ! -d "$BUILD_DIR/dist" ] || [ -z "$(ls -A $BUILD_DIR/dist)" ]; then
+            echo "Error: dist directory is empty or doesn't exist at $BUILD_DIR/dist"
+            echo "Contents of build directory:"
+            ls -la "$BUILD_DIR"
+            echo "Build may have failed. Exiting..."
+            exit 1
+          fi
+          
+          echo "Found dist directory with contents:"
+          ls -la "$BUILD_DIR/dist"
+          
           # Configure git
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           
+          # Store the built files in a temporary location (absolute path)
+          TEMP_DIST="/tmp/temp-dist-$(date +%s)"
+          cp -r "$BUILD_DIR/dist" "$TEMP_DIST"
+          echo "Copied dist to temporary location: $TEMP_DIST"
+          
           # Create or switch to main branch
-          git checkout main || git checkout -b main
+          git checkout main 2>/dev/null || git checkout -b main
           
           # Remove existing files (except .git and .github)
-          find . -maxdepth 1 ! -name '.git' ! -name '.github' ! -name '.' -exec rm -rf {} +
+          find . -maxdepth 1 ! -name '.git' ! -name '.github' ! -name '.' -exec rm -rf {} + 2>/dev/null || true
           
           # Copy built files to main branch
-          cp -r dist/* .
+          cp -r "$TEMP_DIST"/* .
+          echo "Copied files from $TEMP_DIST to main branch"
+          
+          # Clean up temporary directory
+          rm -rf "$TEMP_DIST"
           
           # Add and commit changes
           git add .
