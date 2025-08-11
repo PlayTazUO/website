@@ -4,16 +4,20 @@
   fill: currentColor;
 }
 
-.card {
-  background-color: var(--sl-color-neutral-100);
-  border-radius: 1.5rem;
-  padding: 2rem;
-  box-shadow: var(--sl-shadow-small);
+.sl-link-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 1em;
+  border: 1px solid var(--sl-color-accent);
+  border-radius: 1rem;
+  background-color: var(--sl-color-gray-7);
+  color: var(--sl-color-white);
+  text-decoration: none;
+  transition: background 0.3s ease;
 }
 
-.card:hover {
-  background-color: var(--sl-color-neutral-200);
-  box-shadow: var(--sl-shadow-medium);
+.sl-link-button:hover {
+  background-color: var(--sl-color-accent-low);
 }
 
 @media (min-width: 91rem) {
