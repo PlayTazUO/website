@@ -4,74 +4,68 @@ description: Next Generation Ultima Online Client - Experience Britannia like ne
 template: splash
 hero:
   title: TazUO
-  tagline: Next Generation Ultima Online Client
+  tagline: The Next Generation, Cross-Platform, Ultima Online Client
   image:
     file: ../../assets/bg.png
   actions:
     - text: Download Now
-      link: https://github.com/PlayTazUO/TazUO/releases
-      icon: external
-      variant: primary
-    - text: Installation Guide
       link: /introduction/how-to-install/
-      icon: right-arrow
+      icon: cloud-download
+      variant: primary
+    - text: Join our Discord
+      link: https://discord.gg/QvqzkB95G4
+      icon: discord
       variant: secondary
-    - text: View Features
-      link: /legion/api/
-      icon: open-book
-      variant: minimal
 ---
 
-import { Card, CardGrid, Badge } from "@astrojs/starlight/components";
+import { CardGrid, Badge } from "@astrojs/starlight/components";
+import NiceCard from '../../components/NiceCard.astro';
 
-### Why Choose TazUO?
+## Custom Features
 
 <CardGrid>
-  <Card title="Active Development" icon="rocket">
+  <NiceCard title="Active Development" icon="rocket">
     We're a community developing a client with features **YOU** suggest.
-  </Card>
-  <Card title="Customizable TTF Font Support" icon="pencil">
+  </NiceCard>
+  <NiceCard title="Customizable TTF Font Support" icon="pencil">
     Support for modern fonts - our screens have grown larger but our eyes have
     grown weaker.
-  </Card>
-  <Card title="Customizable UI" icon="setting">
+  </NiceCard>
+  <NiceCard title="Customizable UI" icon="setting">
     Highly customizable UI options to make the client truly yours.
-  </Card>
-  <Card title="Grid Containers" icon="list-format">
+  </NiceCard>
+  <NiceCard title="Grid Containers" icon="list-format">
     Easily see and manage your items, without needing to sort through a tiny
     bag.
-  </Card>
-  <Card title="Built-in Assistant" icon="star">
+  </NiceCard>
+  <NiceCard title="Built-in Assistant" icon="star">
     We have worked tirelessly to implement your favorite assistant features
     directly into the client. From Autoloot, to Autosell and Autobuy.
-  </Card>
-  <Card title="View More Features" icon="external">
+  </NiceCard>
+  <NiceCard title="View More Features" icon="external">
     Browse our [extensive wiki](/wiki/home/) to see
     all the changes we've put into our client.
-  </Card>
+  </NiceCard>
 </CardGrid>
 
-## Get TazUO
-
-Available for Windows, macOS, and Linux
 
 ## Quick Start
 
 <CardGrid>
-  <Card title="Installation" icon="rocket">
+  <NiceCard title="Installation" icon="rocket">
     Follow the [installation guide](/introduction/how-to-install/) to get
     started with TazUO.
-  </Card>
-  <Card title="Python API" icon="document">
+  </NiceCard>
+  <NiceCard title="Python API" icon="document">
     Learn about [Legion scripting](/legion/api/) and automation features.
-  </Card>
-  <Card title="Community" icon="discord">
+  </NiceCard>
+  <NiceCard title="Community" icon="discord">
     Join our [Discord server](https://discord.gg/QvqzkB95G4) for support and
     community discussions.
-  </Card>
-  <Card title="Contributing" icon="github">
+  </NiceCard>
+  <NiceCard title="Contributing" icon="github">
     Contribute to the project on [GitHub](https://github.com/PlayTazUO/TazUO).
-  </Card>
+  </NiceCard>
 </CardGrid>
 
 ---
