@@ -20,7 +20,23 @@
   background-color: var(--sl-color-accent-low);
 }
 
-@media (min-width: 91rem) {
+button[data-open-modal]{
+  cursor: pointer;
+  border: 1px solid var(--sl-color-accent);
+}
+
+dialog:where([open]) {
+  border: 1px solid var(--sl-color-accent);
+  border-radius: 0.5rem;
+  background-color: var(--sl-color-gray-7);
+  color: var(--sl-color-white);
+}
+
+form:focus-within {
+  outline: none;
+}
+
+@media (min-width: 121rem) {
   .sl-container, .starlight-container, .main-content, .content-container {
     width: 100%;
     max-width: 2000px;
