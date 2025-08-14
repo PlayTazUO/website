@@ -36,6 +36,10 @@ form:focus-within {
   outline: none;
 }
 
+input:focus[type="text"]{
+  outline: none;
+}
+
 @media (min-width: 121rem) {
   .sl-container, .starlight-container, .main-content, .content-container {
     width: 100%;
