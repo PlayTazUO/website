@@ -13,7 +13,7 @@ export default defineConfig({
         alt: "TazUO Logo",
         replacesTitle: true,
       },
-      favicon: '/public/favicon.ico',
+      favicon: '/favicon.ico',
       title: "TazUO",
       social: [
         {
