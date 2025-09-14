@@ -1,0 +1,146 @@
+---
+title: Contribution Guide
+description: A guide to contributing to the TazUO client.
+---
+
+# TazUO Code Contribution Guide
+
+Welcome to TazUO! We appreciate your interest in contributing to our custom Ultima Online client. TazUO is a C# FNA-based game that utilizes SDL2, originally forked from ClassicUO but now maintained as an independent project focused on quality-of-life improvements for players.
+
+## 🌳 Branch Structure & Targeting
+
+**IMPORTANT**: Please read this section carefully to ensure your contributions go to the right place.
+
+### Target Branches
+
+- **`legacy`** - Target this branch for .NET Framework 4.7.2 code contributions
+- **`dev`** - Target this branch for .NET 9 code contributions (actively maintained)
+- **`main`** - **DO NOT TARGET** - This is the stable release branch
+
+### Development Focus
+
+- **Primary Development**: Most active development happens on the `.NET 9` version (`dev` branch)
+- **Legacy Version**: We also maintain a `.NET 472` version (`legacy` branch) for plugin compatibility
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- .Net installed.
+- Git for version control
+- Basic understanding of C#, FNA framework, and SDL2
+
+### Repository Setup
+
+1. Fork the repository from [https://github.com/PlayTazUO/TazUO](https://github.com/PlayTazUO/TazUO)
+2. Due to using an older FNA version, you need to run this:
+   ```bash
+   git config --global url."https://".insteadOf git://
+   ```
+3. Clone your fork locally:
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/TazUO.git
+   cd TazUO
+   ```
+4. Set up the upstream remote:
+   ```bash
+   git remote add upstream https://github.com/PlayTazUO/TazUO.git
+   ```
+
+### Choosing Your Target Branch
+
+**Before starting any work**, decide which version you want to contribute to:
+
+- **Contributing to .NET 4.7.2 (legacy)**:
+  ```bash
+  git checkout legacy
+  git pull upstream legacy
+  git checkout -b your-feature-name
+  ```
+
+- **Contributing to .NET 9 (dev)**:
+  ```bash
+  git checkout dev
+  git pull upstream dev
+  git checkout -b your-feature-name
+  ```
+
+## 📋 Contribution Guidelines
+
+### Code Standards
+
+- Follow C# naming conventions and coding standards
+- Maintain consistency with existing codebase style
+- Add appropriate comments for complex logic
+- Test your changes before submitting a PR
+
+## 🔄 Pull Request Process
+
+### Before Submitting
+
+1. **Test thoroughly** - Ensure your changes work in various scenarios
+2. **Check compatibility** - Test with different UO server configurations if applicable
+3. **Update documentation** - Add or update relevant documentation
+4. **Follow branch targeting** - Ensure you're targeting the correct branch (`legacy` or `dev`)
+
+### Submitting Your PR
+
+1. Push your feature branch to your fork
+2. Create a Pull Request against the appropriate upstream branch:
+   - **For .NET 4.7.2 features**: Target `legacy` branch
+   - **For .NET 9 features**: Target `dev` branch
+3. **Never target `main`** - This will be rejected
+
+### PR Description Template
+
+```markdown
+## Description
+Brief description of the changes made.
+
+## Type of Change
+- [ ] Bug fix
+- [ ] New feature
+- [ ] Performance improvement
+- [ ] Code refactoring
+- [ ] Documentation update
+
+## Testing
+Describe how you tested these changes.
+
+## Screenshots (if applicable)
+Add screenshots to help explain your changes.
+
+## Additional Notes
+Any additional information relevant to the PR.
+```
+
+## 🐛 Bug Reports & Feature Requests
+
+- **Bug Reports**: Use GitHub Issues with detailed reproduction steps
+- **Feature Requests**: Join our Discord or use GitHub Discussions to propose new features
+- **Wiki Updates**: Check our [[wiki](https://github.com/PlayTazUO/TazUO/wiki)](https://github.com/PlayTazUO/TazUO/wiki) for existing feature documentation
+
+## 💬 Community & Support
+
+- **Discord**: Join our Discord server for real-time discussion and support
+- **GitHub Discussions**: For feature proposals and general discussion
+- **Wiki**: Comprehensive documentation of TazUO features and changes
+
+## 📝 Important Notes
+
+### Branch Targeting Reminder
+- ✅ **legacy** - .NET Framework 4.7.2 development
+- ✅ **dev** - .NET 9 development  
+- ❌ **main** - DO NOT TARGET (stable releases only)
+
+### Project Philosophy
+
+TazUO has evolved beyond its ClassicUO origins. While we monitor ClassicUO for useful updates, we maintain our own roadmap focused on user-requested features and quality-of-life improvements. Our goal is to enhance the Ultima Online experience while maintaining the classic feel players love.
+
+## 🙏 Recognition
+
+All contributors are valued members of the TazUO community. Significant contributions will be recognized in our release notes and project documentation.
+
+---
+
+Thank you for contributing to TazUO! Your efforts help make Ultima Online more enjoyable for players worldwide.

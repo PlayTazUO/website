@@ -37,11 +37,16 @@ export default defineConfig({
               slug: "introduction/how-to-install",
               badge: { text: "New", variant: "success" },
             },
+            {
+              label: "Code Contributions",
+              slug: "introduction/code-contributions",
+              badge: { text: "New", variant: "success" },
+            },
           ],
         },
         {
           label: "TazUO Wiki",
-          autogenerate: { directory: "wiki" , collapsed: true },
+          autogenerate: { directory: "wiki" , collapsed: false },
         },
         {
           label: "Legion Scripting",
