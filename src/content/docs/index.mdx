@@ -18,26 +18,33 @@ hero:
       variant: secondary
 ---
 
-import { CardGrid, Badge, LinkCard } from "@astrojs/starlight/components";
-import NiceCard from "../../components/NiceCard.astro";
+import { CardGrid, Badge, LinkCard, Card } from "@astrojs/starlight/components";
+import { NiceCard, NiceLink } from "@/components";
 
-## Latest News
+
+## Articles <Badge text="New" variant="success" size="small"/>
+
 
 <CardGrid>
-  <LinkCard
+  <NiceLink
     href="/introduction/modern-vs-legacy/"
     title="Modern vs Legacy"
     description="Detailed article comparing TazUO Net9 and Legacy."
-  />
-  <LinkCard
+    icon="document"
+  >
+  <Badge text="New" variant="success"/>
+  </NiceLink>
+  <NiceLink
     href="/introduction/how-to-install/"
     title="How to Install TazUO"
     description="Step-by-step guide to install TazUO on Windows, macOS, and Linux."
+    icon="rocket"
   />
-  <LinkCard
+  <NiceLink
     href="/introduction/code-contributions/"
     title="Code Contributions"
     description="Learn how to contribute to the TazUO project."
+    icon="github"
   />
 </CardGrid>
 

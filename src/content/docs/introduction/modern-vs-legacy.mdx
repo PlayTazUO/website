@@ -4,7 +4,7 @@ description: "Learn the key differences between the legacy TazUO client (.NET 4.
 ---
 
 import { Aside, LinkCard } from "@astrojs/starlight/components";
-import NiceCard from "@/components/NiceCard.astro";
+import { NiceCard, NiceLink } from "@/components";
 
 <Aside type="tip">
   In this article we will compare the two main versions of TazUO: the legacy
@@ -53,10 +53,12 @@ The Net9 version represents the **current evolution** of TazUO, built on **.NET 
 - You are using an older system that cannot run .NET 9.
 - Your server requires features available only via legacy plugins.
 
-<NiceCard title="Installation & Getting Started">
-  <LinkCard
-    href="/introduction/how-to-install/"
-    title="How to Install TazUO"
-    description="Step-by-step guide to install TazUO on Windows, macOS, and Linux."
-  />
-</NiceCard>
+___________________________________________________________________
+
+<NiceLink
+  href="/introduction/how-to-install/"
+  title="How to Install TazUO"
+  description="Step-by-step guide to install TazUO on Windows, macOS, and Linux."
+  icon="cloud-download"
+/>
+
