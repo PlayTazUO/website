@@ -18,8 +18,28 @@ hero:
       variant: secondary
 ---
 
-import { CardGrid, Badge } from "@astrojs/starlight/components";
-import NiceCard from '../../components/NiceCard.astro';
+import { CardGrid, Badge, LinkCard } from "@astrojs/starlight/components";
+import NiceCard from "../../components/NiceCard.astro";
+
+## Latest News
+
+<CardGrid>
+  <LinkCard
+    href="/introduction/modern-vs-legacy/"
+    title="Modern vs Legacy"
+    description="Detailed article comparing TazUO Net9 and Legacy."
+  />
+  <LinkCard
+    href="/introduction/how-to-install/"
+    title="How to Install TazUO"
+    description="Step-by-step guide to install TazUO on Windows, macOS, and Linux."
+  />
+  <LinkCard
+    href="/introduction/code-contributions/"
+    title="Code Contributions"
+    description="Learn how to contribute to the TazUO project."
+  />
+</CardGrid>
 
 ## Custom Features
 
@@ -43,11 +63,10 @@ import NiceCard from '../../components/NiceCard.astro';
     directly into the client. From Autoloot, to Autosell and Autobuy.
   </NiceCard>
   <NiceCard title="View More Features" icon="external">
-    Browse our [extensive wiki](/wiki/home/) to see
-    all the changes we've put into our client.
+    Browse our [extensive wiki](/wiki/home/) to see all the changes we've put
+    into our client.
   </NiceCard>
 </CardGrid>
-
 
 ## Quick Start
 
