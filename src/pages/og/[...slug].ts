@@ -18,12 +18,19 @@ export const { getStaticPaths, GET } = OGImageRoute({
   getImageOptions: (_id, page: (typeof pages)[number]) => {
     return {
       // Use the page title and description as the image title and description.
+      format: "WEBP",
+      quality: 90,
       title: page.data.title,
       description: page.data.description,
+      logo: {
+        path: './src/pages/og/images/docs-logo.png',
+        size: [400],
+      },
       // Customize various colors and add a border.
-      bgGradient: [[24, 24, 27]],
-      border: { color: [63, 63, 70], width: 20 },
+      bgImage: {
+        path: './src/pages/og/images/background.png',
+			},
       padding: 120,
-    }
+    };
   },
-})
+});
