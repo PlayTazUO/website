@@ -19,7 +19,7 @@ export const { getStaticPaths, GET } = OGImageRoute({
     return {
       // Use the page title and description as the image title and description.
       format: "WEBP",
-      quality: 90,
+      quality: 100,
       title: page.data.title,
       description: page.data.description,
       logo: {
