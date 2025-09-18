@@ -8,6 +8,7 @@ export default defineConfig({
   site: "https://tazuo.org",
   integrations: [
     starlight({
+      routeMiddleware: './src/routeData.ts',
       logo: {
         src: "/src/assets/TazUO.webp",
         alt: "TazUO Logo",
