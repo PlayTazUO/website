@@ -30,32 +30,33 @@ export default defineConfig({
       ],
       sidebar: [
         {
+          label: "How to Install",
+          slug: "introduction/how-to-install",
+          badge: { text: "🔥", variant: "default" },
+        },
+        {
           label: "Introduction",
           items: [
             // Each item here is one entry in the navigation menu.
             {
-              label: "How to Install",
-              slug: "introduction/how-to-install",
+              label: "Modern vs Legacy",
+              slug: "introduction/modern-vs-legacy",
+              badge: { text: "New", variant: "success" },
             },
             {
               label: "Code Contributions",
               slug: "introduction/code-contributions",
               badge: { text: "New", variant: "success" },
             },
-            {
-              label: "Modern vs Legacy",
-              slug: "introduction/modern-vs-legacy",
-              badge: { text: "New", variant: "success" },
-            },
           ],
         },
         {
           label: "TazUO Wiki",
-          autogenerate: { directory: "wiki" , collapsed: false },
+          autogenerate: { directory: "wiki", collapsed: false },
         },
         {
           label: "Legion Scripting",
-          autogenerate: { directory: "legion" , collapsed: true },
+          autogenerate: { directory: "legion", collapsed: true },
         },
       ],
       plugins: [
