@@ -8,6 +8,9 @@ export default defineConfig({
   site: "https://tazuo.org",
   integrations: [
     starlight({
+      components: {
+        Search: './src/components/Search.astro',
+      },
       routeMiddleware: './src/routeData.ts',
       logo: {
         src: "/src/assets/TazUO.webp",
