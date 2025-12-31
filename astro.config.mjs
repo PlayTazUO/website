@@ -41,12 +41,10 @@ export default defineConfig({
             {
               label: "Modern vs Legacy",
               slug: "introduction/modern-vs-legacy",
-              badge: { text: "New", variant: "success" },
             },
             {
               label: "Code Contributions",
               slug: "introduction/code-contributions",
-              badge: { text: "New", variant: "success" },
             },
           ],
         },
