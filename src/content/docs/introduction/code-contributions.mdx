@@ -5,7 +5,7 @@ description: A guide to contributing to the TazUO client.
 
 # TazUO Code Contribution Guide
 
-Welcome to TazUO! We appreciate your interest in contributing to our custom Ultima Online client. TazUO is a C# FNA-based game that utilizes SDL2, originally forked from ClassicUO but now maintained as an independent project focused on quality-of-life improvements for players.
+Welcome to TazUO! We appreciate your interest in contributing to our custom Ultima Online client. TazUO is a C# FNA-based game, originally forked from ClassicUO but now maintained as an independent project focused on quality-of-life improvements for players.
 
 ## Branch Structure & Targeting
 
@@ -14,7 +14,7 @@ Welcome to TazUO! We appreciate your interest in contributing to our custom Ulti
 ### Target Branches
 
 - **`legacy`** - Target this branch for .NET Framework 4.7.2 code contributions
-- **`dev`** - Target this branch for .10 code contributions (actively maintained)
+- **`dev`** - Target this branch for .NET 10 code contributions (actively maintained)
 - **`main`** - **DO NOT TARGET** - This is the stable release branch
 
 ### Development Focus
@@ -28,23 +28,15 @@ Welcome to TazUO! We appreciate your interest in contributing to our custom Ulti
 
 - .Net installed.
 - Git for version control
-- Basic understanding of C#, FNA framework, and SDL2
+- Basic understanding of C# and the FNA framework
 
 ### Repository Setup
 
 1. Fork the repository from [https://github.com/PlayTazUO/TazUO](https://github.com/PlayTazUO/TazUO)
-2. Due to using an older FNA version, you need to run this:
+2. Clone your fork locally:
    ```bash
-   git config --global url."https://".insteadOf git://
-   ```
-3. Clone your fork locally:
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/TazUO.git
+   git clone https://github.com/xxYOUR_USERNAMExx/TazUO.git
    cd TazUO
-   ```
-4. Set up the upstream remote:
-   ```bash
-   git remote add upstream https://github.com/PlayTazUO/TazUO.git
    ```
 
 ### Choosing Your Target Branch
@@ -117,8 +109,8 @@ Any additional information relevant to the PR.
 ## Bug Reports & Feature Requests
 
 - **Bug Reports**: Use GitHub Issues with detailed reproduction steps
-- **Feature Requests**: Join our Discord or use GitHub Discussions to propose new features
-- **Wiki Updates**: Check our [[wiki](https://github.com/PlayTazUO/TazUO/wiki)](https://github.com/PlayTazUO/TazUO/wiki) for existing feature documentation
+- **Feature Requests**: Join our Discord or use [Forums](https://forums.tazuo.org) to propose new features
+- **Wiki Updates**: Check our wiki here for existing feature documentation
 
 ## Community & Support
 
@@ -129,7 +121,7 @@ Any additional information relevant to the PR.
 ## 📝 Important Notes
 
 ### Branch Targeting Reminder
-- ✅ **legacy** - .NET Framework 4.7.2 development
+- ✅ **legacy** - .NET Framework 4.7.2
 - ✅ **dev** - .NET 10 development  
 - ❌ **main** - DO NOT TARGET (stable releases only)
 

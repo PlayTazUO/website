@@ -8,11 +8,15 @@ hero:
   image:
     file: ../../assets/bg.png
   actions:
-    - text: Download Now
+    - text: Download
       link: /introduction/how-to-install/
       icon: cloud-download
       variant: primary
-    - text: Join our Discord
+    - text: Forums
+      link: https://forums.tazuo.org
+      icon: comment
+      variant: secondary
+    - text: Discord
       link: https://discord.gg/QvqzkB95G4
       icon: discord
       variant: secondary
@@ -26,23 +30,15 @@ import { CardGrid, Badge, LinkCard, Card } from "@astrojs/starlight/components";
 import { NiceCard, NiceLink } from "@/components";
 
 
-## Articles <Badge text="New" variant="success" size="small"/>
+## Articles
 
 
 <CardGrid>
   <NiceLink
     href="/introduction/modern-vs-legacy/"
     title="Modern vs Legacy"
-    description="Detailed article comparing TazUO Net9 and Legacy."
+    description="Learn the differences between modern TazUO and Legacy."
     icon="document"
-  >
-  <Badge text="New" variant="success"/>
-  </NiceLink>
-  <NiceLink
-    href="/introduction/how-to-install/"
-    title="How to Install TazUO"
-    description="Step-by-step guide to install TazUO on Windows, macOS, and Linux."
-    icon="rocket"
   />
   <NiceLink
     href="/introduction/code-contributions/"
@@ -90,7 +86,7 @@ import { NiceCard, NiceLink } from "@/components";
     Learn about [Legion scripting](/legion/api/) and automation features.
   </NiceCard>
   <NiceCard title="Community" icon="discord">
-    Join our [Discord server](https://discord.gg/QvqzkB95G4) for support and
+    Join our [Forums](https://forums.tazuo.org) or [Discord](https://discord.gg/QvqzkB95G4) for support and
     community discussions.
   </NiceCard>
   <NiceCard title="Contributing" icon="github">
