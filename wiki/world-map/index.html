@@ -87,7 +87,7 @@
 <div class="sl-heading-wrapper level-h3"><h3 id="map-display">Map Display</h3><a class="sl-anchor-link" href="#map-display"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentcolor" d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 0 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 1 0-1.42-1.42Zm8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 0 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 1 0 1.42 1.42l3.88-3.89a4.49 4.49 0 0 0 0-6.33ZM8.83 15.17a1 1 0 0 0 1.1.22 1 1 0 0 0 .32-.22l4.92-4.92a1 1 0 0 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42Z"></path></svg></span><span class="sr-only">Section titled “Map Display”</span></a></div>
 <ul>
 <li><strong>Real-time rendering</strong> of the current game world map</li>
-<li><strong>Zoom levels</strong>: 10 different zoom levels (0.125x to 8x)
+<li><strong>Zoom levels</strong>: 11 different zoom levels (0.125x to 10x)
 <ul>
 <li>Use mouse wheel to zoom in/out</li>
 <li>Grid overlay appears automatically at 4x zoom and above (configurable)</li>
@@ -168,7 +168,8 @@ border visibility now simply follows the lock state described above)</li>
 <li><strong>Show All Markers</strong>: Toggle visibility of all map markers</li>
 <li><strong>Always show markers at any zoom</strong>: When enabled, markers render at full visibility on
 every zoom level instead of degrading to a small dot (or disappearing) when zoomed out
-past their configured zoom index. This is a machine-wide (global) setting.</li>
+past their configured zoom index. Marker name labels are shown at every zoom too (they
+are normally hidden below zoom level 6). This is a machine-wide (global) setting.</li>
 <li><strong>Show Marker Names</strong>: Toggle marker text labels</li>
 <li><strong>Show Marker Icons</strong>: Toggle marker icons (if available)</li>
 <li><strong>Font Style</strong>: The Font Style selector lives on the <strong>main context menu</strong> (not just the marker submenu) and applies to marker text <strong>and</strong> mobile/entity/group names.</li>

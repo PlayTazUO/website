@@ -146,9 +146,9 @@ or deletable — copy one to customize it):</p>
 <p>When building or editing a rule you pick a <strong>trigger</strong> from the catalog. The shipped
 trigger types are:</p>
 <ul>
-<li><strong>Sound played</strong> — fires when a chosen sound is played (pick it by name or type its
-index; press Play to hear it). Supports min/max distance filters and distance-based
-fade (curve).</li>
+<li><strong>Sound played</strong> — fires when any of the chosen sounds is played (pick them by name or
+type their indexes; press Play to hear one). Supports min/max distance filters and
+distance-based fade (curve).</li>
 <li><strong>Chat message</strong> — fires when a journal/chat line matches a pattern (plain text,
 contains, starts-with, ends-with, or regex), optionally from the player only and/or
 case-sensitive. A <code dir="auto">Duration (s)</code> field decides how long the effect runs.</li>
@@ -157,9 +157,14 @@ case-sensitive. A <code dir="auto">Duration (s)</code> field decides how long th
 mana, weight, resistances, stat locks, death-screen timer, and many more), built with
 a condition editor (field, operator, value).</li>
 <li><strong>Buff changed</strong> — fires when a chosen buff/debuff is <strong>added</strong>, <strong>removed</strong>, or while
-it is <strong>active</strong> on you. Pick the buff by name, or type its numeric ID if the list has
-no name for it. A <code dir="auto">Duration (s)</code> field controls how long the effect runs after the
-buff is added/removed (ignored for the “active” mode, which follows the buff itself).</li>
+it is <strong>active</strong> on you. Pick one or more buffs by name, or type numeric IDs if the
+list has no name for them (any one of them fires the rule). A <code dir="auto">Duration (s)</code> field
+controls how long the effect runs after the buff is added/removed (ignored for the
+“active” mode, which follows the buff itself).</li>
+<li><strong>Object used</strong> — fires when you double-click one of the watched objects. Add
+serials (decimal or hex) by typing them or targeting the object in the world; any one
+of them fires the rule. A <code dir="auto">Duration (s)</code> field controls how long the effect runs, and
+using the object again restarts the clock.</li>
 </ul>
 <p>Each trigger is either a <strong>Poll</strong> (sampled a few times a second) or an <strong>Event</strong> (costs
 nothing until it fires).</p>
